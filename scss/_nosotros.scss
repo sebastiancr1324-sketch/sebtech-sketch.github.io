@@ -1,0 +1,86 @@
+// =====================================================
+// PAGINA NOSOTROS
+// =====================================================
+
+.nosotros {
+  @extend %container;
+  padding-block: $space-lg;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-lg;
+
+  @include respond-desktop {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  &__text {
+    color: $texto2;
+
+    p {
+      margin-bottom: $space-sm;
+    }
+  }
+
+  &__title {
+    color: $texto1;
+    margin-bottom: $space-sm;
+  }
+}
+
+.valores {
+  @extend %container;
+  padding-block: $space-lg;
+
+  &__title {
+    color: $texto1;
+    margin-bottom: $space-md;
+    text-align: center;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-md;
+
+    @include respond-tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.card-valor {
+  background: $cartas;
+  border: 1px solid $bordes;
+  border-radius: $radius-md;
+  padding: $space-md;
+  text-align: center;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: $brillo;
+  }
+
+  &__icon {
+    color: $logoscartas;
+    margin-bottom: $space-sm;
+
+    svg {
+      width: 32px;
+      height: 32px;
+      margin-inline: auto;
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    color: $tcuadros1;
+    margin-bottom: $space-xs;
+  }
+
+  &__text {
+    color: $tcuadros2;
+    font-size: 0.9rem;
+  }
+}

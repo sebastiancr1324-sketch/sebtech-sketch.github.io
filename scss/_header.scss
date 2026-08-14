@@ -1,0 +1,119 @@
+@import 'variables';
+@import 'mixins';
+
+// =====================================================
+// HEADER / NAV
+// =====================================================
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba($fondo, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $bordes;
+
+  &__inner {
+    @extend %container;
+    @include flex(row, center, space-between);
+    padding-block: $space-sm;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: $font-display;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+
+
+    .header__logo-accent {
+      color: $acento;
+    }
+
+    &-img {
+      height: 32px;
+      width: auto;
+    }
+  }
+
+
+  &__nav {
+    ul {
+      @include flex(row, center, center, $space-md);
+    }
+
+    a {
+      font-family: $font-mono;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 4px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: $acento;
+        transition: width 0.25s ease;
+      }
+
+      &:hover::after,
+      &[aria-current='page']::after {
+        width: 100%;
+      }
+    }
+
+    // Nav simple: se apila en mobile, se acomoda a partir de tablet
+    display: none;
+
+    &.is-open {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: $encabezado;
+      border-bottom: 1px solid $bordes;
+      padding: $space-sm;
+
+      a {
+    color: $footer; 
+  }
+
+      ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: $space-sm;
+      }
+    }
+
+    @include respond-tablet {
+      display: block;
+      position: static;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+  }
+
+  &__toggle {
+    background: none;
+    border: 1px solid $bordes;
+    border-radius: $radius-sm;
+    color: $texto1;
+    padding: 0.4rem 0.6rem;
+    font-size: 1.1rem;
+
+    @include respond-tablet {
+      display: none;
+    }
+  }
+}

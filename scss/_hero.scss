@@ -1,0 +1,94 @@
+@import 'variables';
+@import 'mixins';
+
+// =====================================================
+// HERO
+// =====================================================
+
+.hero {
+  @extend %container;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: $space-lg;
+  padding-block: $space-xl $space-lg;
+
+  @include respond-desktop {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  &__eyebrow {
+    @extend %eyebrow;
+    display: block;
+    margin-bottom: $space-sm;
+  }
+
+  &__title {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    margin-bottom: $space-sm;
+
+    em {
+      font-style: normal;
+      color: $acento;
+    }
+  }
+
+  &__text {
+    color: $texto2;
+    max-width: 42ch;
+    margin-bottom: $space-md;
+  }
+
+  &__actions {
+    @include flex(row, center, flex-start, $space-sm);
+    flex-wrap: wrap;
+  }
+
+  &__visual {
+    @include flex(row, center, center);
+  }
+}
+
+// Gráfico de circuito animado — elemento distintivo del hero
+.circuit {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 1 / 1;
+
+  circle {
+    fill: $acento;
+  }
+
+  path, line {
+    stroke: $bordes;
+    stroke-width: 1.5;
+    fill: none;
+  }
+
+  .circuit__pulse {
+    fill: none;
+    stroke: $acento;
+    stroke-width: 2;
+    stroke-dasharray: 8 10;
+    animation: pulse-flow 3.5s linear infinite;
+  }
+
+  .circuit__node {
+    animation: node-glow 2.4s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse-flow {
+  to {
+    stroke-dashoffset: -180;
+  }
+}
+
+@keyframes node-glow {
+  0%, 100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}

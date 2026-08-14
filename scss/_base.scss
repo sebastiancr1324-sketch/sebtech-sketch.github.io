@@ -1,0 +1,79 @@
+@import 'variables';
+@import 'mixins';
+
+// =====================================================
+// RESET & BASE
+// =====================================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $fondo;
+  color: $texto1;
+  font-family: $font-body;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3 {
+  font-family: $font-display;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.container {
+  @extend %container;
+}
+
+.btn {
+  @include button-base;
+
+  &--primary {
+    background: $acento;
+    color: $fondo;
+
+    &:hover {
+      background: $brillo;
+      box-shadow: 0 0 24px rgba($acento, 0.45);
+    }
+  }
+
+  &--ghost {
+    border-color: $bordes;
+    color: $texto1;
+
+    &:hover {
+      border-color: $acento;
+      color: $acento;
+    }
+  }
+}
+
+// Respeta usuarios con "reducir movimiento" activado
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

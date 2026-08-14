@@ -1,0 +1,41 @@
+// =====================================================
+// VARIABLES — SebTech
+// Paleta inspirada en el logo: navy profundo + celeste eléctrico
+// =====================================================
+
+// Colores
+$fondo: #ffffff;   // fondo general
+$encabezado: #0d1524;   // superficie (header, footer)
+$cartas: #0b3d9b;   // cards
+$logoscartas:#000000; // color del logo en las cards
+$bordes: #223051;   // bordes / divisores
+
+$acento: #0b3d9b;   // acento primario
+$brillo: #7ce8ff;   // hover / brillo
+
+$texto1: #000000;    // texto claro principal
+$texto2: #000000;  // texto secundario / muted
+$tcuadros1: #f0f0f0;   // texto claro principal
+$tcuadros2: #e0e0e0;   // texto claro secundario
+$footer: #f0f0f0;      // texto del footer
+$logofooter: #ffffff;    // color del logo en el footer
+
+// Tipografías
+$font-display: 'Chakra Petch', sans-serif; // titulos, tech/angular
+$font-body: 'Inter', sans-serif;           // texto general
+$font-mono: 'JetBrains Mono', monospace;   // labels, eyebrows, specs
+
+// Espaciados
+$space-xs: 0.5rem;
+$space-sm: 1rem;
+$space-md: 2rem;
+$space-lg: 4rem;
+$space-xl: 2rem;
+
+// Bordes
+$radius-sm: 6px;
+$radius-md: 14px;
+
+// Breakpoints
+$bp-tablet: 768px;
+$bp-desktop: 1100px;

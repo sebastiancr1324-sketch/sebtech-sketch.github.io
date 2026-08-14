@@ -1,0 +1,16 @@
+// =====================================================
+// MAIN — SebTech
+// Archivo principal: importa todos los partials en orden
+// =====================================================
+
+@import 'variables';
+@import 'mixins';
+@import 'base';
+@import 'header';
+@import 'hero';
+@import 'categorias';
+@import 'footer';
+@import 'productos';
+@import 'nosotros';
+@import 'contacto';
+@import 'faq';

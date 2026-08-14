@@ -1,0 +1,71 @@
+@import 'variables';
+@import 'mixins';
+
+// =====================================================
+// CATEGORIAS DESTACADAS
+// =====================================================
+
+.categorias {
+  @extend %container;
+  padding-block: $space-lg;
+
+  &__eyebrow {
+    @extend %eyebrow;
+  }
+
+  &__title {
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    margin-block: $space-xs $space-md;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-md;
+
+    @include respond-tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.card-categoria {
+  background: $cartas;
+  border: 1px solid $bordes;
+  border-radius: $radius-md;
+  padding: $space-md;
+  text-decoration: none;
+  color: $tcuadros1;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+
+  &:hover {
+    border-color: $acento;
+    transform: translateY(-4px);
+
+    .card-categoria__icon {
+      color: $logoscartas;
+    }
+  }
+
+  &__icon {
+    color: $texto2;
+    margin-bottom: $space-sm;
+    transition: color 0.25s ease;
+
+    svg {
+      width: 34px;
+      height: 34px;
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 1.2rem;
+    margin-bottom: $space-xs;
+  }
+
+  &__text {
+    color: $texto2;
+    font-size: 0.9rem;
+  }
+}

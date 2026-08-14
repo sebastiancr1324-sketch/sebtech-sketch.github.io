@@ -1,0 +1,63 @@
+// =====================================================
+// PAGINA FAQ
+// =====================================================
+
+.faq {
+  @extend %container;
+  padding-block: $space-lg;
+  max-width: 800px;
+
+  &__title {
+    color: $texto1;
+    margin-bottom: $space-xs;
+  }
+
+  &__text {
+    color: $texto2;
+    margin-bottom: $space-lg;
+  }
+}
+
+.faq-item {
+  background: $cartas;
+  border: 1px solid $bordes;
+  border-radius: $radius-md;
+  margin-bottom: $space-sm;
+  overflow: hidden;
+
+  summary {
+    cursor: pointer;
+    list-style: none;
+    padding: $space-sm $space-md;
+    font-family: $font-display;
+    color: $tcuadros1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-sm;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::after {
+      content: '+';
+      font-family: $font-mono;
+      font-size: 1.3rem;
+      color: $brillo;
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+  }
+
+  &[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  &__respuesta {
+    padding: 0 $space-md $space-md;
+    color: $tcuadros2;
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+}

@@ -20,6 +20,7 @@
         <ul>
           <li><a href="../index.html">Inicio</a></li>
           <li><a href="productos.html" aria-current="page">Productos</a></li>
+          <li><a href="envios.html">Envíos</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
           <li><a href="contacto.html">Contacto</a></li>
           <li><a href="faq.html">FAQ</a></li>
@@ -60,15 +61,18 @@
       var id = params.get('id');
       var contenedor = document.getElementById('producto-contenido');
 
-      if (!id) {
-        contenedor.innerHTML = '<p class="producto-detail__error">Producto no encontrado. <a href="productos.html">Volver al catálogo</a></p>';
-        return;
-      }
-
-      var producto = obtenerProductoPorId(id);
+      var producto = id ? obtenerProductoPorId(id) : null;
 
       if (!producto) {
-        contenedor.innerHTML = '<p class="producto-detail__error">Producto no encontrado. <a href="productos.html">Volver al catálogo</a></p>';
+        contenedor.innerHTML =
+          '<div class="producto-detail__notfound">' +
+            '<p class="producto-detail__notfound-code">404</p>' +
+            '<h1 class="producto-detail__notfound-title">Producto no encontrado</h1>' +
+            '<p class="producto-detail__notfound-text">El producto que buscás no existe o ya no está disponible. Te invitamos a mirar nuestro catálogo.</p>' +
+            '<div class="producto-detail__actions">' +
+              '<a href="productos.html" class="btn btn--primary">Ver catálogo</a>' +
+            '</div>' +
+          '</div>';
         return;
       }
 
@@ -83,13 +87,32 @@
         specsHtml += '</ul>';
       }
 
+      var images = (producto.imagenes && producto.imagenes.length > 0) ? producto.imagenes : [obtenerImagenPrincipal(producto)];
+      var imgPrincipal = images[0];
+
+      var thumbsHtml = '';
+      if (images.length > 1) {
+        thumbsHtml = '<div class="producto-detail__thumbs">';
+        for (var t = 0; t < images.length; t++) {
+          thumbsHtml += '<button type="button" class="producto-detail__thumb" data-img="' + images[t] + '" aria-label="Ver imagen ' + (t+1) + '">' +
+            '<img src="' + images[t] + '" alt="' + producto.nombre + ' imagen ' + (t+1) + '">' +
+          '</button>';
+        }
+        thumbsHtml += '</div>';
+      }
+
       contenedor.innerHTML =
-        '<div class="producto-detail__volver">' +
-          '<a href="productos.html" class="producto-detail__back">&larr; Volver al catálogo</a>' +
-        '</div>' +
+        '<nav class="breadcrumb" aria-label="Ruta de navegación">' +
+          '<a href="../index.html">Inicio</a>' +
+          '<span class="breadcrumb__sep">/</span>' +
+          '<a href="productos.html">Productos</a>' +
+          '<span class="breadcrumb__sep">/</span>' +
+          '<span class="breadcrumb__current">' + producto.nombre + '</span>' +
+        '</nav>' +
         '<div class="producto-detail__grid">' +
           '<div class="producto-detail__gallery">' +
-            '<img src="' + producto.imagen + '" alt="' + producto.nombre + '" class="producto-detail__img">' +
+            '<img src="' + imgPrincipal + '" alt="' + producto.nombre + '" class="producto-detail__img" id="producto-img-principal">' +
+            thumbsHtml +
           '</div>' +
           '<div class="producto-detail__info">' +
             '<span class="producto-detail__category">' + producto.categoria + '</span>' +
@@ -100,8 +123,69 @@
             '<div class="producto-detail__actions">' +
               '<a href="https://wa.me/message/NDPQOF3UHLIQF1?text=Hola!%20Quiero%20consultar%20por%20el%20' + encodeURIComponent(producto.nombre) + '" class="btn btn--primary" target="_blank" rel="noopener">Consultar por WhatsApp</a>' +
             '</div>' +
+            '<div class="producto-detail__share">' +
+              '<p class="producto-detail__share-label">Compartir</p>' +
+              '<div class="producto-detail__share-buttons">' +
+                '<a href="#" class="producto-detail__share-btn" id="btn-share-wa" target="_blank" rel="noopener">' +
+                  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.5L3 20l1.1-5.4A8.5 8.5 0 1121 11.5z"/></svg>WhatsApp</a>' +
+                '<button type="button" class="producto-detail__share-btn" id="btn-share-copiar">' +
+                  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>Copiar enlace</button>' +
+              '</div>' +
+            '</div>' +
           '</div>' +
         '</div>';
+
+      var imgPrincipalEl = document.getElementById('producto-img-principal');
+      var thumbs = document.querySelectorAll('.producto-detail__thumb');
+      for (var th = 0; th < thumbs.length; th++) {
+        (function(btn) {
+          btn.addEventListener('click', function() {
+            imgPrincipalEl.src = btn.getAttribute('data-img');
+            var activos = document.querySelectorAll('.producto-detail__thumb.is-active');
+            for (var a = 0; a < activos.length; a++) { activos[a].classList.remove('is-active'); }
+            btn.classList.add('is-active');
+          });
+        })(thumbs[th]);
+      }
+
+      if (thumbs.length > 0) {
+        thumbs[0].classList.add('is-active');
+      }
+
+      var urlCompleta = window.location.href;
+      var textoCompartido = "Mirá este producto en SebTech: " + producto.nombre;
+
+      var btnWa = document.getElementById('btn-share-wa');
+      if (btnWa) {
+        btnWa.href = 'https://wa.me/?text=' + encodeURIComponent(textoCompartido + ' ' + urlCompleta);
+      }
+
+      var btnCopiar = document.getElementById('btn-share-copiar');
+      if (btnCopiar) {
+        btnCopiar.addEventListener('click', function() {
+          function copiarFallback() {
+            var texto = document.createElement('textarea');
+            texto.value = urlCompleta;
+            document.body.appendChild(texto);
+            texto.select();
+            try { document.execCommand('copy'); } catch (e) {}
+            document.body.removeChild(texto);
+            mostrarCopiado();
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(urlCompleta).then(function() {
+              mostrarCopiado();
+            }).catch(copiarFallback);
+          } else {
+            copiarFallback();
+          }
+        });
+        function mostrarCopiado() {
+          var textoOriginal = btnCopiar.innerHTML;
+          btnCopiar.innerHTML = '✓ Enlace copiado';
+          setTimeout(function() { btnCopiar.innerHTML = textoOriginal; }, 2000);
+        }
+      }
     });
   </script>
 

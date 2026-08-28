@@ -35,6 +35,7 @@
         <ul>
           <li><a href="index.html" aria-current="page">Inicio</a></li>
           <li><a href="pages/productos.html">Productos</a></li>
+          <li><a href="pages/envios.html">Envíos</a></li>
           <li><a href="pages/nosotros.html">Nosotros</a></li>
           <li><a href="pages/contacto.html">Contacto</a></li>
           <li><a href="pages/faq.html">FAQ</a></li>
@@ -57,6 +58,20 @@
 
       <div class="hero__visual">
         <img src="img/LogoSebtech.png" alt="Logo de SebTech" class="hero__logo-img">
+      </div>
+    </section>
+
+    <section class="destacados" aria-labelledby="destacados-title">
+      <span class="destacados__eyebrow">Destacados</span>
+      <h2 class="destacados__title" id="destacados-title">Lo que más nos piden</h2>
+      <div class="carrusel" id="carrusel">
+        <div id="particles-js"></div>
+        <button type="button" class="carrusel__nav carrusel__nav--prev" aria-label="Anterior">‹</button>
+        <button type="button" class="carrusel__nav carrusel__nav--next" aria-label="Siguiente">›</button>
+        <div class="carrusel__viewport">
+          <div class="carrusel__track" id="carrusel-track"></div>
+        </div>
+        <div class="carrusel__dots" id="carrusel-dots"></div>
       </div>
     </section>
 
@@ -112,6 +127,118 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/particles.min.js"></script>
+  <script src="js/products.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    var particulasIniciadas = false;
+    function iniciarParticulas() {
+      if (particulasIniciadas || typeof particlesJS === 'undefined') return;
+      particulasIniciadas = true;
+      particlesJS('particles-js', {
+        "particles": {
+          "number": { "value": 90, "density": { "enable": true, "value_area": 600 } },
+          "color": { "value": "#7ce8ff" },
+          "shape": { "type": "circle" },
+          "opacity": { "value": 0.6, "random": true },
+          "size": { "value": 4, "random": true },
+          "line_linked": {
+            "enable": true,
+            "distance": 120,
+            "color": "#0b3d9b",
+            "opacity": 0.3,
+            "width": 1
+          },
+          "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "out_mode": "out" }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": { "onhover": { "enable": false, "mode": "repulse" }, "onclick": { "enable": false, "mode": "push" }, "resize": true },
+          "modes": {
+            "repulse": { "distance": 100 },
+            "push": { "particles_nb": 3 }
+          }
+        },
+        "retina_detect": true
+      });
+      window.setTimeout(function() {
+        if (window.pJSDom && window.pJSDom[0] && window.pJSDom[0].pJS) {
+          var pJS = window.pJSDom[0].pJS;
+          if (pJS.fn && pJS.fn.vendors && pJS.fn.vendors.densityAutoParticles) pJS.fn.vendors.densityAutoParticles();
+          if (pJS.fn && pJS.fn.canvasSize) pJS.fn.canvasSize();
+        }
+      }, 100);
+    }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      iniciarParticulas();
+      var track = document.getElementById('carrusel-track');
+      var dots = document.getElementById('carrusel-dots');
+      if (!track) return;
+
+      var slides = '';
+      var dotsHtml = '';
+      for (var i = 0; i < productos.length; i++) {
+        var p = productos[i];
+        var img = obtenerImagenPrincipal(p);
+        slides +=
+          '<div class="carrusel__slide" data-simple="true">' +
+            '<img src="' + img + '" alt="' + p.nombre + '" class="carrusel__img">' +
+            '<h3 class="carrusel__nombre">' + p.nombre + '</h3>' +
+            '<span class="carrusel__precio">' + formatearPrecio(p.precio) + '</span>' +
+            '<a href="pages/producto.html?id=' + p.id + '" class="btn btn--primary carrusel__cta">Ver producto</a>' +
+          '</div>';
+        dotsHtml += '<button type="button" class="carrusel__dot" data-idx="' + i + '" aria-label="Mostrar producto ' + (i+1) + '"></button>';
+      }
+      track.innerHTML = slides;
+      dots.innerHTML = dotsHtml;
+
+      var slidesEl = track.querySelectorAll('.carrusel__slide');
+      var dotsEl = dots.querySelectorAll('.carrusel__dot');
+      var indice = 0;
+      var intervalo;
+      var anchoSlide = 260;
+
+      function mostrar(idx) {
+        indice = (idx + slidesEl.length) % slidesEl.length;
+        for (var i = 0; i < slidesEl.length; i++) {
+          slidesEl[i].classList.toggle('is-active', i === indice);
+          dotsEl[i].classList.toggle('is-active', i === indice);
+        }
+        var viewportW = (document.querySelector('.carrusel__viewport') || track).clientWidth || 800;
+        var offset = (viewportW / 2) - anchoSlide / 2 - indice * anchoSlide;
+        track.style.transform = 'translateX(' + offset + 'px)';
+      }
+
+      function siguiente() { mostrar(indice + 1); }
+      function anterior() { mostrar(indice - 1); }
+
+      var btnPrev = document.querySelector('.carrusel__nav--prev');
+      var btnNext = document.querySelector('.carrusel__nav--next');
+      if (btnPrev) btnPrev.addEventListener('click', function() { anterior(); reiniciar(); });
+      if (btnNext) btnNext.addEventListener('click', function() { siguiente(); reiniciar(); });
+
+      for (var d = 0; d < dotsEl.length; d++) {
+        (function(btn) {
+          btn.addEventListener('click', function() {
+            mostrar(parseInt(btn.getAttribute('data-idx'), 10));
+            reiniciar();
+          });
+        })(dotsEl[d]);
+      }
+
+      function reiniciar() {
+        clearInterval(intervalo);
+        intervalo = setInterval(siguiente, 4000);
+      }
+
+      if (slidesEl.length > 0) {
+        mostrar(0);
+        reiniciar();
+        window.addEventListener('resize', function() { mostrar(indice); });
+      }
+    });
+  </script>
 </body>
 </html>

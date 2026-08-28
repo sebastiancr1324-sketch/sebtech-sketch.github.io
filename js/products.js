@@ -5,7 +5,7 @@ const productos = [
     categoria: "celulares",
     precio: null,
     descripcion: "128GB de almacenamiento, cámara triple y batería de larga duración.",
-    imagen: "../img/GalaxyA15.avif",
+    imagenes: ["../img/GalaxyA15.avif"],
     especificaciones: ["128GB de almacenamiento", "Cámara triple", "Batería de larga duración"]
   },
   {
@@ -14,7 +14,7 @@ const productos = [
     categoria: "celulares",
     precio: null,
     descripcion: "Pantalla AMOLED, carga rápida y gran rendimiento diario.",
-    imagen: "../img/RedmiNote13.jpg",
+    imagenes: ["../img/RedmiNote13.jpg"],
     especificaciones: ["Pantalla AMOLED", "Carga rápida", "Rendimiento diario"]
   },
   {
@@ -23,7 +23,7 @@ const productos = [
     categoria: "celulares",
     precio: null,
     descripcion: "Ideal para uso diario, con buena cámara y batería confiable.",
-    imagen: "../img/MotorolaG54.webp",
+    imagenes: ["../img/MotorolaG54.webp"],
     especificaciones: ["Buena cámara", "Batería confiable", "Uso diario"]
   },
   {
@@ -32,7 +32,7 @@ const productos = [
     categoria: "tablets",
     precio: null,
     descripcion: "Perfecta para estudio y entretenimiento, pantalla grande y liviana.",
-    imagen: "../img/GalaxyTabA9.webp",
+    imagenes: ["../img/GalaxyTabA9.webp"],
     especificaciones: ["Pantalla grande", "Liviana", "Ideal para estudio"]
   },
   {
@@ -41,16 +41,16 @@ const productos = [
     categoria: "tablets",
     precio: null,
     descripcion: "Buena autonomía y rendimiento para uso diario o trabajo.",
-    imagen: "../img/LenovoTabM10.png",
+    imagenes: ["../img/LenovoTabM10.png"],
     especificaciones: ["Buena autonomía", "Rendimiento confiable", "Uso diario y trabajo"]
   },
   {
     id: "haylou-s30",
     nombre: "Haylou S30",
     categoria: "auriculares",
-    precio: null,
+    precio: "120.000",
     descripcion: "Sonido nítido, larga duración de batería y conexión estable.",
-    imagen: "../img/HaylouS30.webp",
+    imagenes: ["../img/HaylouS30.webp"],
     especificaciones: ["Sonido nítido", "Larga batería", "Conexión estable"]
   },
   {
@@ -59,10 +59,20 @@ const productos = [
     categoria: "auriculares",
     precio: null,
     descripcion: "Livianos, resistentes al sudor, ideales para entrenar y con un gran sonido.",
-    imagen: "../img/Airpods3.webp",
+    imagenes: ["../img/Airpods3.webp"],
     especificaciones: ["Livianos", "Resistentes al sudor", "Gran sonido"]
   }
 ];
+
+function obtenerImagenPrincipal(producto) {
+  if (producto.imagenes && producto.imagenes.length > 0) {
+    return producto.imagenes[0];
+  }
+  if (producto.imagen) {
+    return producto.imagen;
+  }
+  return "";
+}
 
 function obtenerProductoPorId(id) {
   return productos.find(function(p) { return p.id === id; });

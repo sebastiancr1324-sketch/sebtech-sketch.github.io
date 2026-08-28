@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Preguntas Frecuentes | SebTech</title>
-  <meta name="description" content="Resolvé tus dudas sobre envíos, garantía y formas de pago en SebTech.">
+  <title>Envíos | SebTech</title>
+  <meta name="description" content="Conocé cómo hacemos los envíos de SebTech: zonas, tiempos y formas de entrega.">
   <link rel="stylesheet" href="../css/main.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,45 +22,54 @@
         <ul>
           <li><a href="../index.html">Inicio</a></li>
           <li><a href="productos.html">Productos</a></li>
-          <li><a href="envios.html">Envíos</a></li>
+          <li><a href="envios.html" aria-current="page">Envíos</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
           <li><a href="contacto.html">Contacto</a></li>
-          <li><a href="faq.html" aria-current="page">FAQ</a></li>
+          <li><a href="faq.html">FAQ</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="faq">
-      <span class="pagina-header__eyebrow">Ayuda</span>
-      <h1 class="faq__title">Preguntas frecuentes</h1>
-      <p class="faq__text">Resolvé las dudas más comunes sobre compras, envíos y garantía.</p>
+    <div class="pagina-header">
+      <span class="pagina-header__eyebrow">Envíos</span>
+      <h1 class="pagina-header__title">Te lo llevamos a tu casa</h1>
+    </div>
 
-      <details class="faq-item">
-        <summary>¿Hacen envíos a todo el país?</summary>
-        <p class="faq-item__respuesta">Sí, realizamos envíos seguros a todo el país. Los tiempos de entrega varían según la localidad.</p>
-      </details>
+    <section class="envios">
+      <div class="envios__grid">
 
-      <details class="faq-item">
-        <summary>¿Los productos tienen garantía?</summary>
-        <p class="faq-item__respuesta">Todos nuestros productos cuentan con garantía. Consultanos por WhatsApp los detalles según el modelo.</p>
-      </details>
+        <div class="envios-card">
+          <div class="envios-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h2 class="envios-card__title">Zonas de entrega</h2>
+          <p class="envios-card__text">Realizamos envíos a todo CABA y GBA. Consultanos por otras zonas del país.</p>
+        </div>
 
-      <details class="faq-item">
-        <summary>¿Qué medios de pago aceptan?</summary>
-        <p class="faq-item__respuesta">Aceptamos transferencia bancaria y efectivo. Escribinos para coordinar la forma de pago que mejor te convenga.</p>
-      </details>
+        <div class="envios-card">
+          <div class="envios-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="7" width="15" height="10" rx="1"/><path d="M16 10h3l3 3v4h-6"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>
+          </div>
+          <h2 class="envios-card__title">Tiempos de entrega</h2>
+          <p class="envios-card__text">Coordinamos la entrega una vez confirmado tu pedido. Generalmente en 24 a 72 horas hábiles.</p>
+        </div>
 
-      <details class="faq-item">
-        <summary>¿Cómo hago una consulta sobre un producto?</summary>
-        <p class="faq-item__respuesta">Podés escribirnos directamente por WhatsApp o Instagram, o completar el formulario en la sección de Contacto.</p>
-      </details>
+        <div class="envios-card">
+          <div class="envios-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          </div>
+          <h2 class="envios-card__title">Costos</h2>
+          <p class="envios-card__text">El costo del envío se coordina según la zona de entrega. Consultanos para confirmar el valor.</p>
+        </div>
 
-      <details class="faq-item">
-        <summary>¿Puedo cambiar un producto si no me convence?</summary>
-        <p class="faq-item__respuesta">Sí, contamos con política de cambios. Contactanos dentro de los primeros días de recibido el producto.</p>
-      </details>
+      </div>
+
+      <div class="envios-nota">
+        <p class="envios-nota__text">¿Tenés dudas sobre tu envío? Escribinos y te respondemos a la brevedad.</p>
+        <p class="envios-nota__text" style="margin-top:0.5rem;"><a href="https://wa.me/message/NDPQOF3UHLIQF1" target="_blank" rel="noopener">Contactanos por WhatsApp</a></p>
+      </div>
     </section>
   </main>
 
@@ -82,6 +91,7 @@
     </div>
     <p class="footer__legal">© 2026 SebTech. Todos los derechos reservados.</p>
   </footer>
+
   <script src="../js/main.js"></script>
 </body>
 </html>

@@ -24,6 +24,7 @@
         <ul>
           <li><a href="../index.html" >Inicio</a></li>
           <li><a href="productos.html" aria-current="page">Productos</a></li>
+          <li><a href="envios.html">Envíos</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
           <li><a href="contacto.html">Contacto</a></li>
           <li><a href="faq.html">FAQ</a></li>
@@ -84,7 +85,7 @@
           var prod = productosCat[p];
           html += '<a href="producto.html?id=' + prod.id + '" class="card-producto">';
           html += '<div class="card-producto__media">';
-          html += '<img src="' + prod.imagen + '" alt="' + prod.nombre + '">';
+          html += '<img src="' + obtenerImagenPrincipal(prod) + '" alt="' + prod.nombre + '">';
           html += '</div>';
           html += '<div class="card-producto__body">';
           html += '<h3 class="card-producto__title">' + prod.nombre + '</h3>';

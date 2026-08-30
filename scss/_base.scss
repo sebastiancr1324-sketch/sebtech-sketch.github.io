@@ -55,6 +55,7 @@ h1, h2, h3 {
 
     &:hover {
       background: $brillo;
+      color: $acento;
       box-shadow: 0 0 24px rgba($acento, 0.45);
     }
   }

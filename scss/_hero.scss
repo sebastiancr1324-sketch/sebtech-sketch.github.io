@@ -12,9 +12,27 @@
   align-items: center;
   gap: $space-lg;
   padding-block: $space-xl $space-lg;
+  position: relative;
 
   @include respond-desktop {
     grid-template-columns: 1.1fr 0.9fr;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2rem;
+    right: -3rem;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba($acento, 0.12), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 1;
   }
 
   &__eyebrow {
@@ -26,6 +44,7 @@
   &__title {
     font-size: clamp(2.2rem, 5vw, 3.4rem);
     margin-bottom: $space-sm;
+    line-height: 1.08;
 
     em {
       font-style: normal;

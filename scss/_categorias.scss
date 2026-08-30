@@ -36,11 +36,13 @@
   padding: $space-md;
   text-decoration: none;
   color: $tcuadros1;
-  transition: border-color 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 4px 14px rgba($acento, 0.15);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
-    border-color: $acento;
-    transform: translateY(-4px);
+    border-color: $brillo;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba($acento, 0.28);
 
     .card-categoria__icon {
       color: $logoscartas;

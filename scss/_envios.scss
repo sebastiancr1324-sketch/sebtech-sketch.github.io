@@ -1,0 +1,109 @@
+@import 'variables';
+@import 'mixins';
+
+// =====================================================
+// PAGINA DE ENVIOS
+// =====================================================
+
+// Animación de aparición usada al cargar la página (escritorio/tablet)
+@keyframes envios-fade-up {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.envios {
+  @extend %container;
+  padding-block: 0 $space-lg;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-md;
+    margin-top: 1.5rem;
+
+    @include respond-tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.envios-card {
+  background: $cartas;
+  border: 1px solid $bordes;
+  border-radius: $radius-md;
+  padding: $space-md;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  opacity: 1;
+
+  // En escritorio/tablet: las cards aparecen al cargar la página
+  @include respond-tablet {
+    animation: envios-fade-up 0.6s ease both;
+  }
+
+  // Escalonado en escritorio/tablet
+  @include respond-tablet {
+    &:nth-child(2) { animation-delay: 0.12s; }
+    &:nth-child(3) { animation-delay: 0.24s; }
+  }
+
+  &:hover {
+    border-color: $brillo;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba($acento, 0.2);
+  }
+
+  &__icon {
+    color: $brillo;
+    margin-bottom: $space-sm;
+
+    svg {
+      width: 34px;
+      height: 34px;
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 1.15rem;
+    color: $tcuadros1;
+    margin-bottom: $space-xs;
+  }
+
+  &__text {
+    color: $tcuadros2;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
+.envios-nota {
+  margin-top: 2.5rem;
+  background: $fondo;
+  border: 1px solid $bordes;
+  border-radius: $radius-md;
+  padding: $space-md;
+  text-align: center;
+
+  // En escritorio/tablet: aparece al cargar la página (con retraso)
+  @include respond-tablet {
+    animation: envios-fade-up 0.6s ease 0.4s both;
+  }
+
+  &__text {
+    color: $texto2;
+    font-size: 0.95rem;
+
+    + .envios-nota__text {
+      margin-top: $space-xs;
+    }
+
+    a {
+      color: $acento;
+      font-weight: 600;
+    }
+  }
+}

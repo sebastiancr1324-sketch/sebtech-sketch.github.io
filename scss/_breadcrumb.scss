@@ -1,0 +1,39 @@
+@import 'variables';
+@import 'mixins';
+
+// =====================================================
+// BREADCRUMB — migas de pan
+// =====================================================
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-xs;
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+  margin-bottom: 1.5rem;
+
+  a {
+    color: $acento;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+
+    &:hover {
+      border-color: $acento;
+    }
+  }
+
+  &__sep {
+    opacity: 0.5;
+  }
+
+  &__current {
+    color: $texto1;
+    font-weight: 500;
+  }
+}

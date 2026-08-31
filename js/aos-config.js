@@ -30,16 +30,39 @@ function aplicarAtributos() {
   for (var c = 0; c < claves.length; c++) {
     var selector = claves[c];
     var config = AOS_ELEMENTOS[selector];
-    // Saltar los que son solo-movil cuando NO estamos en móvil
     if (!esMovil && AOS_SOLO_MOVIL.indexOf(selector) !== -1) continue;
+
     var elementos = document.querySelectorAll(selector);
+
+    // Escalonar por grilla/contenedor: cada grilla reinicia su contador
+    var contadorGrupo = {};
+    var grupoIndex = 0;
     for (var e = 0; e < elementos.length; e++) {
-      if (!elementos[e].hasAttribute('data-aos')) {
-        elementos[e].setAttribute('data-aos', config.efecto);
-        // Escalonar: cada elemento siguiente de la misma clase se retrasa un poco
-        var delay = config.delay + e * 80;
-        elementos[e].setAttribute('data-aos-delay', delay);
+      var el = elementos[e];
+      if (el.hasAttribute('data-aos')) continue;
+
+      // Grupo = contenedor de grilla más cercano, o el elemento mismo
+      var grupo = el.closest('.categoria-seccion__grid') ||
+                  el.closest('.valores__grid') ||
+                  el.closest('.envios__grid');
+
+      // Asignar un id único a cada grupo encontrado
+      var claveGrupo;
+      if (grupo) {
+        if (!grupo.__aosId) {
+          grupo.__aosId = 'g' + (grupoIndex++);
+        }
+        claveGrupo = grupo.__aosId;
+      } else {
+        claveGrupo = 'solo';
       }
+
+      if (contadorGrupo[claveGrupo] === undefined) contadorGrupo[claveGrupo] = 0;
+
+      el.setAttribute('data-aos', config.efecto);
+      var delay = config.delay + contadorGrupo[claveGrupo] * 50;
+      el.setAttribute('data-aos-delay', delay);
+      contadorGrupo[claveGrupo]++;
     }
   }
 }

@@ -184,8 +184,9 @@
 
       var slides = '';
       var dotsHtml = '';
-      for (var i = 0; i < productos.length; i++) {
-        var p = productos[i];
+      var productosVisibles = productos.filter(function(p) { return !estaSinStock(p); });
+      for (var i = 0; i < productosVisibles.length; i++) {
+        var p = productosVisibles[i];
         var img = obtenerImagenPrincipal(p);
         slides +=
           '<div class="carrusel__slide" data-simple="true">' +

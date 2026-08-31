@@ -102,6 +102,29 @@
         thumbsHtml += '</div>';
       }
 
+      var esSinStock = estaSinStock(producto);
+
+      // Aviso de stock disponible
+      var stockHtml;
+      if (esSinStock) {
+        stockHtml = '<p class="producto-detail__stock producto-detail__stock--sin">Sin stock</p>';
+      } else {
+        stockHtml = '<p class="producto-detail__stock producto-detail__stock--con">Stock disponible: ' + producto.stock + ' unidades</p>';
+      }
+
+      var accionesHtml =
+        '<div class="producto-detail__actions">' +
+          '<a href="https://wa.me/message/NDPQOF3UHLIQF1?text=' + encodeURIComponent((esSinStock ?
+            'Hola! Quiero consultar cuándo va a estar disponible el ' + producto.nombre :
+            'Hola! Quiero consultar por el ' + producto.nombre)) + '" class="btn btn--primary" target="_blank" rel="noopener">' +
+          (esSinStock ? 'Preguntar por disponibilidad' : 'Consultar por WhatsApp') +
+          '</a>' +
+        '</div>';
+
+      var disponibilidadHtml = esSinStock
+        ? '<p class="producto-detail__sin-stock">Este producto se encuentra <strong>sin stock</strong> en este momento. Contactanos por WhatsApp para consultar cuándo va a estar disponible.</p>'
+        : '';
+
       contenedor.innerHTML =
         '<nav class="breadcrumb" aria-label="Ruta de navegación">' +
           '<a href="../index.html">Inicio</a>' +
@@ -119,11 +142,11 @@
             '<span class="producto-detail__category">' + producto.categoria + '</span>' +
             '<h1 class="producto-detail__title">' + producto.nombre + '</h1>' +
             '<p class="producto-detail__price">' + formatearPrecio(producto.precio) + '</p>' +
+            stockHtml +
             '<p class="producto-detail__desc">' + producto.descripcion + '</p>' +
             (specsHtml ? '<div class="producto-detail__specs-section"><h3>Especificaciones</h3>' + specsHtml + '</div>' : '') +
-            '<div class="producto-detail__actions">' +
-              '<a href="https://wa.me/message/NDPQOF3UHLIQF1?text=Hola!%20Quiero%20consultar%20por%20el%20' + encodeURIComponent(producto.nombre) + '" class="btn btn--primary" target="_blank" rel="noopener">Consultar por WhatsApp</a>' +
-            '</div>' +
+            disponibilidadHtml +
+            accionesHtml +
             '<div class="producto-detail__share">' +
               '<p class="producto-detail__share-label">Compartir</p>' +
               '<div class="producto-detail__share-buttons">' +

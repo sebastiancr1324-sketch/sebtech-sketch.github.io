@@ -66,13 +66,32 @@
   <script src="../js/main.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var categorias = ["celulares", "tablets", "auriculares"];
       var container = document.getElementById("catalogo-container");
+
+      var productosConStock = productos.filter(function(p) {
+        return !estaSinStock(p);
+      });
+
+      var productosSinStock = productos.filter(function(p) {
+        return estaSinStock(p);
+      });
+
       var html = "";
+
+      // Detectar categorías dinámicamente (en el orden de definición de productos)
+      var ordenCategorias = ["celulares", "tablets", "auriculares", "accesorios"];
+      var categorias = [];
+      for (var oc = 0; oc < ordenCategorias.length; oc++) {
+        if (productos.some(function(p) { return p.categoria === ordenCategorias[oc]; })) {
+          categorias.push(ordenCategorias[oc]);
+        }
+      }
 
       for (var c = 0; c < categorias.length; c++) {
         var cat = categorias[c];
-        var productosCat = obtenerProductosPorCategoria(cat);
+        var productosCat = productosConStock.filter(function(p) {
+          return p.categoria === cat;
+        });
 
         if (productosCat.length === 0) continue;
 
@@ -94,6 +113,32 @@
           html += '<div class="card-producto__footer">';
           html += '<span class="card-producto__price">' + formatearPrecio(prod.precio) + '</span>';
           html += '<span class="card-producto__cta">Ver producto</span>';
+          html += '</div>';
+          html += '</div>';
+          html += '</a>';
+        }
+
+        html += '</div>';
+        html += '</section>';
+      }
+
+      if (productosSinStock.length > 0) {
+        html += '<section class="categoria-seccion sin-stock" id="sin-stock" aria-labelledby="sin-stock-title">';
+        html += '<h2 class="categoria-seccion__title" id="sin-stock-title">Próximamente</h2>';
+        html += '<div class="categoria-seccion__grid">';
+
+        for (var p = 0; p < productosSinStock.length; p++) {
+          var prod = productosSinStock[p];
+          html += '<a href="producto.html?id=' + prod.id + '" class="card-producto sin-stock">';
+          html += '<div class="card-producto__media">';
+          html += '<img src="' + obtenerImagenPrincipal(prod) + '" alt="' + prod.nombre + '">';
+          html += '</div>';
+          html += '<div class="card-producto__body">';
+          html += '<h3 class="card-producto__title">' + prod.nombre + '</h3>';
+          html += '<p class="card-producto__desc">' + prod.descripcion + '</p>';
+          html += '<div class="card-producto__footer">';
+          html += '<span class="card-producto__price">' + formatearPrecio(prod.precio) + '</span>';
+          html += '<span class="card-producto__cta">Preguntar por disponibilidad</span>';
           html += '</div>';
           html += '</div>';
           html += '</a>';

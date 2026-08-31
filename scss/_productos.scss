@@ -127,6 +127,10 @@
     color: $tcuadros2;
     font-size: 0.85rem;
     flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
  
   &__footer {
@@ -152,5 +156,26 @@
     border-bottom: 1px solid $bordes;
     padding-bottom: 2px;
     transition: color 0.2s ease, border-color 0.2s ease;
+  }
+}
+
+// Cards de productos sin stock (sección "Próximamente")
+.card-producto.sin-stock {
+  .card-producto__media img {
+    opacity: 0.55;
+    filter: grayscale(0.6);
+  }
+
+  .card-producto__title {
+    color: $tcuadros2;
+  }
+
+  .card-producto__price {
+    color: $tcuadros2;
+  }
+
+  .card-producto__cta {
+    color: $acento;
+    border-color: rgba($acento, 0.5);
   }
 }

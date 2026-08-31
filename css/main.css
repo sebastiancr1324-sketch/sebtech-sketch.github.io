@@ -37,6 +37,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -45,6 +46,7 @@ body {
   font-family: "Inter", sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
 }
 
 img {
@@ -729,6 +731,7 @@ h1, h2, h3 {
 .footer__brand {
   font-family: "Chakra Petch", sans-serif;
   font-size: 1.1rem;
+  color: #ffffff;
 }
 .footer__brand span {
   color: #0b3d9b;

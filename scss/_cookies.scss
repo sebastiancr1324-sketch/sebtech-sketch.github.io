@@ -1,0 +1,114 @@
+@import 'variables';
+@import 'mixins';
+
+// =====================================================
+// BANNER DE COOKIES
+// =====================================================
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: $cartas;
+  border-top: 1px solid $bordes;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.45);
+  padding: $space-md;
+  transform: translateY(100%);
+  transition: transform 0.35s ease;
+
+  &.is-visible {
+    transform: translateY(0);
+  }
+
+  &.is-hidden {
+    transform: translateY(100%);
+  }
+
+  &__inner {
+    @extend %container;
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+    align-items: flex-start;
+
+    @include respond-tablet {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: $space-md;
+    }
+  }
+
+  &__text {
+    font-size: 0.9rem;
+    color: $texto2;
+    max-width: 70ch;
+
+    a {
+      color: $brillo;
+      text-decoration: underline;
+    }
+  }
+
+  &__acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-xs;
+  }
+}
+
+// =====================================================
+// PAGINAS LEGALES (Privacidad, Términos, Cookies)
+// =====================================================
+
+.legal {
+  &__seccion {
+    @extend %container;
+    padding-block: $space-md $space-lg;
+  }
+
+  &__bloque {
+    margin-bottom: $space-lg;
+
+    h2 {
+      font-size: 1.3rem;
+      color: $texto1;
+      margin-bottom: $space-xs;
+      padding-bottom: $space-xs;
+      border-bottom: 1px solid $bordes;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      color: $texto1;
+      margin: $space-md 0 $space-xs;
+    }
+
+    p, li {
+      color: $texto2;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: $space-xs;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 1.4rem;
+      margin-bottom: $space-sm;
+    }
+
+    a {
+      color: $brillo;
+      text-decoration: underline;
+    }
+
+    .legal__fecha {
+      font-family: $font-mono;
+      font-size: 0.8rem;
+      color: $texto2;
+      opacity: 0.8;
+    }
+  }
+}

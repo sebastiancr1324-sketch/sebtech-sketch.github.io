@@ -1,5 +1,5 @@
 @charset "UTF-8";
-.faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .destacados, .categorias, .hero, .header__inner, .container {
+.legal__seccion, .cookie-banner__inner, .faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .destacados, .categorias, .hero, .header__inner, .container {
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;
@@ -14,7 +14,7 @@
   color: #0b3d9b;
 }
 
-.faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .destacados, .categorias, .hero, .header__inner, .container {
+.legal__seccion, .cookie-banner__inner, .faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .destacados, .categorias, .hero, .header__inner, .container {
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;
@@ -128,7 +128,7 @@ h1, h2, h3 {
     transition: none !important;
   }
 }
-.faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .destacados, .categorias, .hero, .header__inner, .container {
+.legal__seccion, .cookie-banner__inner, .faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .destacados, .categorias, .hero, .header__inner, .container {
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;
@@ -248,7 +248,7 @@ h1, h2, h3 {
   }
 }
 
-.faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .destacados, .categorias, .hero, .container, .header__inner {
+.legal__seccion, .cookie-banner__inner, .faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .destacados, .categorias, .hero, .container, .header__inner {
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;
@@ -292,7 +292,7 @@ h1, h2, h3 {
   font-weight: 500;
 }
 
-.faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .destacados, .categorias, .hero, .container, .header__inner {
+.legal__seccion, .cookie-banner__inner, .faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .destacados, .categorias, .hero, .container, .header__inner {
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;
@@ -406,7 +406,7 @@ h1, h2, h3 {
     opacity: 1;
   }
 }
-.faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .destacados, .categorias, .container, .header__inner, .hero {
+.legal__seccion, .cookie-banner__inner, .faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .destacados, .categorias, .container, .header__inner, .hero {
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;
@@ -476,7 +476,7 @@ h1, h2, h3 {
   font-size: 0.9rem;
 }
 
-.faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .destacados, .container, .header__inner, .hero, .categorias {
+.legal__seccion, .cookie-banner__inner, .faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .destacados, .container, .header__inner, .hero, .categorias {
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;
@@ -689,7 +689,7 @@ h1, h2, h3 {
     transform: translateY(0);
   }
 }
-.faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .container, .header__inner, .hero, .categorias, .destacados {
+.legal__seccion, .cookie-banner__inner, .faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .categoria-seccion, .pagina-header, .footer__legal, .footer__inner, .container, .header__inner, .hero, .categorias, .destacados {
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;
@@ -934,7 +934,7 @@ h1, h2, h3 {
   border-color: rgba(11, 61, 155, 0.5);
 }
 
-.faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .container, .header__inner, .hero, .categorias, .destacados, .footer__inner, .footer__legal, .pagina-header, .categoria-seccion {
+.legal__seccion, .cookie-banner__inner, .faq, .contacto, .valores, .nosotros, .envios, .producto-detail, .container, .header__inner, .hero, .categorias, .destacados, .footer__inner, .footer__legal, .pagina-header, .categoria-seccion {
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;
@@ -1183,7 +1183,7 @@ h1, h2, h3 {
   margin: 0 auto 2rem;
 }
 
-.faq, .contacto, .valores, .nosotros, .envios, .container, .header__inner, .hero, .categorias, .destacados, .footer__inner, .footer__legal, .pagina-header, .categoria-seccion, .producto-detail {
+.legal__seccion, .cookie-banner__inner, .faq, .contacto, .valores, .nosotros, .envios, .container, .header__inner, .hero, .categorias, .destacados, .footer__inner, .footer__legal, .pagina-header, .categoria-seccion, .producto-detail {
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;
@@ -1517,7 +1517,110 @@ h1, h2, h3 {
   line-height: 1.6;
 }
 
-.container, .header__inner, .hero, .categorias, .destacados, .footer__inner, .footer__legal, .pagina-header, .categoria-seccion, .producto-detail, .envios, .nosotros, .valores, .contacto, .faq {
+.legal__seccion, .cookie-banner__inner, .container, .header__inner, .hero, .categorias, .destacados, .footer__inner, .footer__legal, .pagina-header, .categoria-seccion, .producto-detail, .envios, .nosotros, .valores, .contacto, .faq {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.hero__eyebrow, .categorias__eyebrow, .destacados__eyebrow, .pagina-header__eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #0b3d9b;
+}
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #0b3d9b;
+  border-top: 1px solid #223051;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.45);
+  padding: 2rem;
+  transform: translateY(100%);
+  transition: transform 0.35s ease;
+}
+.cookie-banner.is-visible {
+  transform: translateY(0);
+}
+.cookie-banner.is-hidden {
+  transform: translateY(100%);
+}
+.cookie-banner__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+@media (min-width: 768px) {
+  .cookie-banner__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
+.cookie-banner__text {
+  font-size: 0.9rem;
+  color: #000000;
+  max-width: 70ch;
+}
+.cookie-banner__text a {
+  color: #7ce8ff;
+  text-decoration: underline;
+}
+.cookie-banner__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.legal__seccion {
+  padding-block: 2rem 4rem;
+}
+.legal__bloque {
+  margin-bottom: 4rem;
+}
+.legal__bloque h2 {
+  font-size: 1.3rem;
+  color: #000000;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #223051;
+}
+.legal__bloque h3 {
+  font-size: 1.05rem;
+  color: #000000;
+  margin: 2rem 0 0.5rem;
+}
+.legal__bloque p, .legal__bloque li {
+  color: #000000;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+.legal__bloque ul {
+  list-style: disc;
+  padding-left: 1.4rem;
+  margin-bottom: 1rem;
+}
+.legal__bloque a {
+  color: #7ce8ff;
+  text-decoration: underline;
+}
+.legal__bloque .legal__fecha {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  color: #000000;
+  opacity: 0.8;
+}
+
+.container, .header__inner, .hero, .categorias, .destacados, .footer__inner, .footer__legal, .pagina-header, .categoria-seccion, .producto-detail, .envios, .nosotros, .valores, .contacto, .faq, .cookie-banner__inner, .legal__seccion {
   width: 100%;
   max-width: 1200px;
   margin-inline: auto;

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://sebastiancr1324-sketch.github.io/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://sebastiancr1324-sketch.github.io/pages/productos.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://sebastiancr1324-sketch.github.io/pages/nosotros.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sebastiancr1324-sketch.github.io/pages/envios.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sebastiancr1324-sketch.github.io/pages/contacto.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sebastiancr1324-sketch.github.io/pages/faq.html</loc>
+    <priority>0.7</priority>
+  </url>
+</urlset>

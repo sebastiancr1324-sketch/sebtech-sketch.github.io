@@ -7,7 +7,7 @@
 
 .categorias {
   @extend %container;
-  padding-block: $space-lg;
+  padding-block: $space-md;
 
   &__eyebrow {
     @extend %eyebrow;

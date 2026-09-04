@@ -7,7 +7,7 @@
 
 .destacados {
   @extend %container;
-  padding-block: $space-sm $space-lg;
+  padding-block: $space-sm $space-md;
 
   &__eyebrow {
     @extend %eyebrow;

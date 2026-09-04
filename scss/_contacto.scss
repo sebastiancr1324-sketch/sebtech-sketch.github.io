@@ -4,7 +4,7 @@
 
 .contacto {
   @extend %container;
-  padding-block: $space-lg;
+  padding-block: $space-md;
   display: grid;
   grid-template-columns: 1fr;
   gap: $space-lg;

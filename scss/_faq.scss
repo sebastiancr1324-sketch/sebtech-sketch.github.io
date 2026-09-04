@@ -4,7 +4,7 @@
 
 .faq {
   @extend %container;
-  padding-block: $space-lg;
+  padding-block: $space-md;
   max-width: 800px;
 
   &__title {

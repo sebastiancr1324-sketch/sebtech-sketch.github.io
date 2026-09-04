@@ -4,7 +4,7 @@
  
 .pagina-header {
   @extend %container;
-  padding-block: $space-xl $space-lg;
+  padding-block: $space-xl $space-md;
   text-align: center;
  
   &__eyebrow {
@@ -21,7 +21,7 @@
  
 .categoria-seccion {
   @extend %container;
-  padding-block: $space-lg;
+  padding-block: $space-md;
   scroll-margin-top: 90px; // para que el ancla no quede tapada por el header sticky
  
   &__title {

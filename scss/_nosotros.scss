@@ -4,7 +4,7 @@
 
 .nosotros {
   @extend %container;
-  padding-block: $space-lg;
+  padding-block: $space-md;
   display: grid;
   grid-template-columns: 1fr;
   gap: $space-lg;
@@ -30,7 +30,7 @@
 
 .valores {
   @extend %container;
-  padding-block: $space-lg;
+  padding-block: $space-md;
 
   &__title {
     color: $texto1;

@@ -16,8 +16,8 @@
 }
 
 .envios {
-  @extend %container;
-  padding-block: 0 $space-lg;
+      @extend %container;
+      padding-block: 0 $space-md;
 
   &__grid {
     display: grid;

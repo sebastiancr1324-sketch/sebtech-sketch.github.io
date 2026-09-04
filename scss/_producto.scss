@@ -7,7 +7,7 @@
 
 .producto-detail {
   @extend %container;
-  padding-block: $space-md $space-lg;
+  padding-block: $space-md;
 
   &__grid {
     display: grid;
@@ -273,5 +273,44 @@
     font-size: 0.95rem;
     max-width: 40ch;
     margin: 0 auto $space-md;
+  }
+}
+
+// =====================================================
+// PRODUCTOS RELACIONADOS (página individual de producto)
+// =====================================================
+
+.relacionados {
+  @extend %container;
+  padding-block: $space-md;
+
+  &__inner {
+    border-top: 1px solid $bordes;
+    padding-top: $space-sm;
+  }
+
+  &__eyebrow {
+    @extend %eyebrow;
+    display: block;
+    margin-bottom: $space-xs;
+  }
+
+  &__title {
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    margin-bottom: $space-md;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-md;
+
+    @include respond-tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-desktop {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }

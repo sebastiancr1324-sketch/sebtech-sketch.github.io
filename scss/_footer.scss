@@ -8,12 +8,12 @@
 .footer {
   border-top: 1px solid $bordes;
   background: $encabezado;
-  margin-top: $space-xl;
+  margin-top: $space-md;
 
   &__inner {
     @extend %container;
     @include flex(column, flex-start, center, $space-sm);
-    padding-block: $space-lg;
+    padding-block: $space-lg $space-md;
     text-align: center;
 
     @include respond-tablet {
@@ -38,6 +38,37 @@
     margin-top: 0.2rem;
   }
 
+  // Nueva estructura de 3 columnas para tablet/desktop
+  @include respond-tablet {
+    &__inner {
+      @include flex(row, flex-start, space-between, $space-md);
+    }
+
+    &__brand {
+      flex: 0 0 auto;
+    }
+
+    &__contacto {
+      flex: 1 1 auto;
+      text-align: center;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    &__social {
+      flex: 0 0 auto;
+    }
+  }
+
+  &__contacto-title {
+    font-family: $font-display;
+    font-size: 0.9rem;
+    color: $acento;
+    margin-bottom: $space-xs;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
   &__social {
     @include flex(row, center, center, $space-sm);
 
@@ -60,6 +91,77 @@
         height: 18px;
       }
     }
+  }
+
+  &__contacto-fila {
+    margin-top: $space-xs;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+
+    @include respond-tablet {
+      align-items: center;
+      text-align: center;
+    }
+
+    li {
+      color: $footer;
+    }
+  }
+
+  &__wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: $font-mono;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #ffffff;
+    background: #25D366; // Verde oficial de WhatsApp
+    border: 1px solid #25D366;
+    border-radius: $radius-sm;
+    padding: 0.4rem 0.8rem;
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+
+    svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      color: #ffffff;
+      background: #128C7E; // Verde oscuro de WhatsApp para hover
+      border-color: #128C7E;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    }
+
+    &:focus-visible {
+      outline: 2px solid #25D366;
+      outline-offset: 2px;
+    }
+  }
+
+  &__contacto-link {
+    color: $footer;
+    font-size: 0.82rem;
+    text-decoration: underline;
+    word-break: break-all;
+
+    &:hover {
+      color: $brillo;
+    }
+  }
+
+  &__horario {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $footer;
+    opacity: 0.85;
   }
 
   &__legal {

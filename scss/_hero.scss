@@ -11,7 +11,7 @@
   grid-template-columns: 1fr;
   align-items: center;
   gap: $space-lg;
-  padding-block: $space-xl $space-lg;
+  padding-block: $space-xl $space-md;
   position: relative;
 
   @include respond-desktop {

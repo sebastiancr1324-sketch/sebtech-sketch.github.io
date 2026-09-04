@@ -123,7 +123,7 @@
         specsHtml += '</ul>';
       }
 
-      var images = (producto.imagenes && producto.imagenes.length > 0) ? producto.imagenes : [obtenerImagenPrincipal(producto)];
+      var images = (producto.imagenes && producto.imagenes.length > 0) ? producto.imagenes.map(rutaImg) : [obtenerImagenPrincipal(producto)];
       var imgPrincipal = images[0];
 
       var thumbsHtml = '';

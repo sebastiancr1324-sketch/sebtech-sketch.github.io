@@ -168,12 +168,24 @@ const productos = [
   }
 ];
 
+function rutaImg(rel) {
+  if (!rel) return "";
+  if (/^(https?:|data:|blob:)/.test(rel)) return rel;
+  var dirActual = location.pathname.slice(0, location.pathname.lastIndexOf("/") + 1);
+  var partes = dirActual.split("/").filter(Boolean);
+  if (partes.length && partes[partes.length - 1] === "pages") {
+    partes.pop();
+  }
+  var raiz = partes.length ? "/" + partes.join("/") + "/" : "/";
+  return raiz + rel.replace(/^\.\.\//g, "");
+}
+
 function obtenerImagenPrincipal(producto) {
   if (producto.imagenes && producto.imagenes.length > 0) {
-    return producto.imagenes[0];
+    return rutaImg(producto.imagenes[0]);
   }
   if (producto.imagen) {
-    return producto.imagen;
+    return rutaImg(producto.imagen);
   }
   return "";
 }
